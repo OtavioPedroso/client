@@ -36,8 +36,12 @@ export default function FormDialog(props) {
         }
       ]);
     });
+    refreshPage();
     props.setOpen(false);
   };
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   const handleClickOpen = () => {
     props.setOpen(true);

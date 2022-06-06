@@ -35,6 +35,7 @@ export default function FormDialog(props) {
         phone: values.phone,
         role: values.role
     });
+    refreshPage();
     props.setOpen(false);
   };
 
@@ -43,12 +44,17 @@ export default function FormDialog(props) {
   };
   const handleDeleteUser = () => {
     Axios.delete(`http://localhost:3001/delete/${props.id}`)
+    refreshPage();
     props.setOpen(false);
   };
 
   const handleClose = () => {
     props.setOpen(false);
   };
+
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
 
   return (
